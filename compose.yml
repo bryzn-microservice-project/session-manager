@@ -1,1 +1,11 @@
-service: 2
+services:
+  session-manager:
+      image: sm
+      container_name: session-manager
+      environment:
+        - SERVER_PORT=8090
+        - SPRING_PROFILES_ACTIVE=dev
+      volumes:
+      - ./config/application.properties:/app/config/application.properties
+      ports:
+        - "8090:8090"
