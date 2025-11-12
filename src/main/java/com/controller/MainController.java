@@ -24,18 +24,21 @@ public class MainController {
 
     @GetMapping("/api/v1/user")
     public String getUser() {
+        System.out.println("\n");
         LOG.info("Received a request to grab the current logged in user... returning " + currentUser);
         return currentUser;
     }
 
     @PostMapping("/api/v1/logout")
     public void logout() {
+        System.out.println("\n");
         LOG.info("Received a logout request...");
         currentUser = NO_USER;
     }
     
     @PostMapping("/api/v1/login")
     public void login(@RequestBody String user) {
+        System.out.println("\n");
         LOG.info("Received a login request with user " + user + "...");
         currentUser = user;
     }
