@@ -2,6 +2,8 @@ package com.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,9 +39,10 @@ public class MainController {
     }
     
     @PostMapping("/api/v1/login")
-    public void login(@RequestBody String user) {
+    public ResponseEntity<String> login(@RequestBody String user) {
         System.out.println("\n");
         LOG.info("Received a login request with user " + user + "...");
         currentUser = user;
+        return ResponseEntity.ok("Login successful");
     }
 }
